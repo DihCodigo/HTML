@@ -12,13 +12,15 @@
         margin: 1rem;
       }
     </style>
-    <script type="application/ld+json">
-      {
+    <script>
+      const pagePath = window.location.pathname;
+    
+      const jsonLdData = {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Título da Página",
         "description": "Descrição breve da página.",
-        "url": "https://exemplo.com/pagina-amp",
+        "url": window.location.href,
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -43,11 +45,16 @@
           "name": "Categoria da Página",
           "additionalType": "https://schema.org/CategoryCode",
           "description": "Categoria específica da página para organização e SEO.",
-          "pagePath": "/categoria-principal/subcategoria/pagina"
+          "pagePath": pagePath
         }
-      }
+      };
+    
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.textContent = JSON.stringify(jsonLdData);
+      document.head.appendChild(script);
     </script>
-
+    
   </head>
   <body>
     <h1>Hello AMPHTML World!</h1>
