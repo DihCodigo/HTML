@@ -12,39 +12,42 @@
         margin: 1rem;
       }
     </style>
-
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Título da Página",
-    "description": "Descrição breve da página.",
-    "url": "https://exemplo.com/pagina-amp",
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Categoria Principal",
-          "item": "https://exemplo.com/categoria-principal"
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Título da Página",
+        "description": "Descrição breve da página.",
+        "url": "https://exemplo.com/pagina-amp",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Categoria Principal",
+              "item": "https://exemplo.com/categoria-principal",
+              "pagePath": "/categoria-principal"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Subcategoria",
+              "item": "https://exemplo.com/categoria-principal/subcategoria",
+              "pagePath": "/categoria-principal/subcategoria"
+            }
+          ]
         },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Subcategoria",
-          "item": "https://exemplo.com/categoria-principal/subcategoria"
+        "mainEntity": {
+          "@type": "Thing",
+          "name": "Categoria da Página",
+          "additionalType": "https://schema.org/CategoryCode",
+          "description": "Categoria específica da página para organização e SEO.",
+          "pagePath": "/categoria-principal/subcategoria/pagina"
         }
-      ]
-    },
-    "mainEntity": {
-      "@type": "Thing",
-      "name": "Categoria da Página",
-      "additionalType": "https://schema.org/CategoryCode",
-      "description": "Categoria específica da página para organização e SEO."
-    }
-  }
-</script>
+      }
+    </script>
+
   </head>
   <body>
     <h1>Hello AMPHTML World!</h1>
