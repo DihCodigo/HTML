@@ -11,10 +11,15 @@ body {
     line-height: 1.6;
 }
 
+/* Header */
 header {
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
@@ -28,12 +33,13 @@ header {
 .logo {
     font-size: 28px;
     font-weight: bold;
+    color: #ff9800;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 nav ul li a {
@@ -41,10 +47,13 @@ nav ul li a {
     color: #fff;
     font-weight: 600;
     transition: color 0.3s;
+    padding: 5px 10px;
+    border-radius: 4px;
 }
 
 nav ul li a:hover {
     color: #ff9800;
+    background-color: #444;
 }
 
 .social-icons {
@@ -60,27 +69,30 @@ nav ul li a:hover {
     color: #fff;
     font-size: 20px;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .social-icons li a:hover {
     color: #ff9800;
+    transform: scale(1.2);
 }
 
 .bt a {
-    padding: 11px 24px;
-    background-color: #444141;
+    padding: 10px 20px;
+    background-color: #444;
     color: whitesmoke;
     text-decoration: none;
     border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
 }
+
 .bt a:hover {
-    background-color: whitesmoke;
-    border: 2px solid #333;
-    color: #333;
+    background-color: #ff9800;
+    color: #fff;
     font-weight: 700;
 }
 
+/* Main Content */
 main {
     max-width: 1200px;
     margin: 20px auto;
@@ -90,6 +102,7 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Sections */
 .news-section {
     margin-bottom: 30px;
 }
@@ -174,16 +187,28 @@ main {
     margin-bottom: 20px;
 }
 
+/* Footer */
 footer {
     background-color: #333;
     color: #fff;
     padding: 20px;
     text-align: center;
     margin-top: 20px;
-    
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     .breaking-news {
         flex-direction: column;
     }
@@ -191,5 +216,9 @@ footer {
     .breaking-news img {
         width: 100%;
         max-width: 100%;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
     }
 }
