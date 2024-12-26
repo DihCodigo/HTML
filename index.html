@@ -38,6 +38,7 @@
             </ul>
         </div>
     </header>
+    
 
     <main>
         <div class="advertisement">
@@ -111,6 +112,45 @@
     </main>
 
     <footer>
+        <script>
+                            // Script para monitorar desempenho do gpt-loader.js
+                (function monitorPerformance() {
+                const targetScript = "https://adtech.adtechmanagementadvertisements.workers.dev/gpt-loader.js";
+
+                // Verifica se o script está carregado
+                const scriptElement = document.querySelector(`script[src="${targetScript}"]`);
+                if (!scriptElement) {
+                    console.error("O script alvo não foi encontrado na página.");
+                    return;
+                }
+
+                // Função para registrar métricas
+                const logMetrics = () => {
+                    const entries = performance.getEntriesByType("resource");
+                    const targetResource = entries.find(entry => entry.name === targetScript);
+
+                    if (targetResource) {
+                    console.log("Métricas do script gpt-loader.js:");
+                    console.log(`- Tempo de carregamento: ${targetResource.responseEnd.toFixed(2)} ms`);
+                    console.log(`- Tamanho transferido: ${(targetResource.encodedBodySize / 1024).toFixed(2)} KB`);
+                    console.log(`- Tipo de recurso: ${targetResource.initiatorType}`);
+                    } else {
+                    console.warn("O script ainda não carregou ou não gerou métricas no Performance API.");
+                    }
+                };
+
+                // Monitora erros no script
+                window.addEventListener("error", event => {
+                    if (event.target.tagName === "SCRIPT" && event.target.src === targetScript) {
+                    console.error("Erro detectado no script gpt-loader.js:", event.message);
+                    }
+                });
+
+                // Loga métricas após o carregamento completo
+                window.addEventListener("load", logMetrics);
+                })();
+
+        </script>
         &copy; 2024 Notícias Agora - Todos os direitos reservados.
     </footer>
 </body>
