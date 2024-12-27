@@ -4,27 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Content Security Policy (CSP) -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://adtech.adtechmanagementadvertisements.workers.dev; style-src 'self'; img-src 'self';">
-
-    <!-- Security Headers -->
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade">
-
+    <!-- Política de Segurança de Conteúdo (CSP) ajustada para permitir fontes externas, imagens e scripts -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://adtech.adtechmanagementadvertisements.workers.dev https://securepubads.g.doubleclick.net; style-src 'self' https://fonts.googleapis.com; img-src 'self' https://exemplo.com;">
+    
     <title>Site de Notícias</title>
 
-    <!-- Ad Script -->
+    <!-- Carregando script do GPT -->
     <script src="https://adtech.adtechmanagementadvertisements.workers.dev/gpt-loader.js" async></script>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts com permissão para carregar na CSP -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Stylesheet -->
+    <!-- Folha de estilos interna -->
     <link rel="stylesheet" href="./assets/css/estilos.css">
+
+    <!-- Verificação de segurança: adicione cabeçalhos de segurança através do servidor -->
 </head>
 
 
